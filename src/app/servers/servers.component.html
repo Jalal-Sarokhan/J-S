@@ -1,0 +1,24 @@
+<p>servers works!</p>
+<button class="btn btn-primary" [disabled]="allowNewServer">Add Server</button>
+<p [innerText]="allowNewServer"></p>
+<!-- Event-binding -->
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateNewServer()">+</button>
+<p>{{createNewServer}}</p>
+
+<!-- Event-binding with Input -->
+<label for="serverName">ServerName</label>
+ <!-- <input type="text" id="serverName" class="form-control" (input)="onUpdateServerName($event)">
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateNewServer()">Save Name</button>
+<p>{{serverName}}</p> -->
+
+<!-- Tow-Way-binding  -->
+<input type="text" id="serverName" class="form-control" [(ngModel)]="serverName">
+
+<!-- Direktives if, else -->
+<p *ngIf="serverCreated; else noServer">The Server: {{ serverName }} was created!</p>
+<ng-template #noServer>
+  <p>No Server was created!</p>
+</ng-template>
+
+<abc-server *ngFor="let server of servers"></abc-server>
