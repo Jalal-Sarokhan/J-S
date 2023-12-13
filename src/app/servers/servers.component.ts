@@ -27,7 +27,7 @@ onCreateNewServer(){
 onUpdateServerName(event: Event){
   this.serverName = (event.target as HTMLInputElement).value;
 }
-
+myDate = new Date();
 ngOnInit(): void {
   
 
